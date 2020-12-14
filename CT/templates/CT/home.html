@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'CT/base.html' %}
+{% load static %}
+{% block content %}
+
+   <body>
+   {% if user.is_authenticated %}
+       <div class="page-container">
+
+           <h2 class="top-menu">Hello {{ user.username }},</h2>
+           <p>Please choose from below options.</p>
+
+       </div>
+   {% endif %}
+   <div class="content container">
+       <div class="row">
+           <div class="col-md-12">
+               <div class="links">
+                   <!-- Example row of columns -->
+                   <div class="row">
+                        <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="{% static "images/Clients.jpg" %}" alt="client"/>
+                                <div class="caption">
+                                    <h2>Clients</h2>
+                                    <p>Ensuring our clients are given the opportunity to track their nutrition
+                                        goals is our mission</p>
+                                    {% if user.is_authenticated %}
+                                        <p><a class="btn btn-default" href="{% url 'CT:client_list' %}"
+                                              role="button">View
+                                            details &raquo;</a></p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                       <div class="col-md-3">
+                            <div class="thumbnail">
+                                <img src="{% static "images/MTrack.jpg" %}" alt="mTrack"/>
+                                <div class="caption">
+                                    <h2>Meal Tracker</h2>
+                                    <p>Full meal catalogs overseen by our nutrition professionals
+                                        help track client progress in their nutrition goals</p>
+                                    <p><a class="btn btn-default" href="{% url 'CT:mealtrack_list' %}"
+                                           role="button">View
+                                        details &raquo;</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   </body>
+
+{% endblock %}
+
+</html>
+
