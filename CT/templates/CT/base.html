@@ -72,7 +72,7 @@
                 <li><a href="{% url 'CT:home' %}">Home</a></li>
                 <li><a href="{% url 'CT:client_list' %}">Clients</a></li>
                 <li><a href="{% url 'CT:mealtrack_list' %}">Meal Tracker</a></li>
-
+                <li><a href="{% url 'CT:About' %}">About</a></li>
 
 
             </ul>
@@ -88,6 +88,8 @@
                     </li>
                 {% else %}
                     <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                    <li><a href="{% url 'password_reset' %}"><span class="glyphicon glyphicon-log-in"></span> Reset Password</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -135,5 +137,30 @@
         </div>
     </div>
 </body>
+
+<footer>
+    <h4>Email Us!</h4>
+  <p>Authors: Noah Wagner, Corey Snavely, Zach Thornhill, Mark Kroeker</p>
+  <p><a href="mailto:ncwagner@unomaha.edu">Noah Wagner</a></p>
+  <p><a href="mailto:zthornhill@unomaha.edu">Zach Thornhill</a></p>
+  <p><a href="mailto:csnavely@unomaha.edu">Corey Snavely</a></p>
+
+</footer>
+
 </html>
 
+<style>
+
+    /*************************************
+FOOTER
+**************************************/
+     footer {
+         font-size: 0.75em;
+         text-align: center;
+         clear: both;
+         color: black;
+         padding-top: 200px;
+         background-color: transparent;
+     }
+
+</style>

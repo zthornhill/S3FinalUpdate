@@ -37,40 +37,45 @@
                                 team at UNO. As an athlete, I understand the need for a healthy diet so my passion for developing an application
                                 that helps accomplish this is very high!</p>
                             <p>zthornhill@unomaha.edu</p>
-                            <p><button class="button">Contact</button></p>
+                        <p1><button class="button"><a href="mailto:zthornhill@unomaha.edu">Contact Me</a></button></p1>
                         </div>
                     </div>
                 </div>
 
             <div class="column">
                 <div class="card">
-                    <img src="/w3images/team2.jpg" alt="Noah" style="width:100%">
+                    <img class="picZ" src="{% static "images/NoahW.JPG" %}" alt="Noah" width="100%"/>
                     <div class="container">
                         <h2>Noah Wagner</h2>
                         <p class="title">Developer</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>@example.com</p>
-                        <p><button class="button">Contact</button></p>
+                        <p>Hello all, my names Noah Wagner and I'm currently a senior at UNO. I major in Management Information Systems (MIS) as well as obtaining my
+                            certificate for being a System Developer and I plan on graduating in May 2021. I take special interest in developing this application as it
+                            provides many benefits for various users. Health is critical for each and every person and everyone should strive for good health!</p>
+                        <p>ncwagner@unomaha.edu</p>
+                        <p1><button class="button"><a href="mailto:ncwagner@unomaha.edu">Contact Me</a></button></p1>
                     </div>
                 </div>
             </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team3.jpg" alt="Corey" style="width:100%">
+     <img class="picZ" src="{% static "images/CoreyS.jpg" %}" alt="Noah" width="100%"/>
       <div class="container">
         <h2>Corey Snavely</h2>
         <p class="title">Developer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>@example.com</p>
-        <p><button class="button">Contact</button></p>
+        <p>Hey everyone, my name is Corey Snavely and I'm a senior at UNO. I am majoring in Management Information Systems and I
+            am planning to graduate in May of 2021. I'm proud of the Calorie Tracker application we have developed because it shows the
+            good that can come from work in the Information Technology field and the importance it can have on the average person's daily life.
+        </p>
+        <p>csnavely@unomaha.edu</p>
+        <p1><button class="button"><a href="mailto:csnavely@unomaha.edu">Contact Me</a></button></p1>
       </div>
     </div>
   </div>
 </div>
 
     <div style="text-align:center">
-        <a href="{% url 'Home' %}" class="return"> Return Home</a>
+        <a href="{% url 'CT:home' %}" class="return"> Return Home</a>
 
     </div>
 
@@ -171,6 +176,9 @@ html {
         width: 10%;
     }
 
+    a {
+        color: white;
+    }
 
 </style>
 

@@ -33,6 +33,7 @@ class Client(models.Model):
     def __str__(self):
         return str(self.client_name)
 
+
 class MealTracker(models.Model):
     CHOICES = (
         ('Breakfast', 'Breakfast'),
@@ -41,7 +42,7 @@ class MealTracker(models.Model):
         ('Snack', 'Snack')
     )
     client_name = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='mealtrack')
-    meal_category = models.CharField(max_length=50, choices= CHOICES)
+    meal_category = models.CharField(max_length=50, choices=CHOICES)
     meal_description = models.TextField()
     time = models.DateTimeField(
         default=timezone.now)
@@ -53,11 +54,10 @@ class MealTracker(models.Model):
     def created(self):
         self.created_date = timezone.now()
         self.save()
+
     def updated(self):
         self.updated_date = timezone.now()
         self.save()
 
     def __str__(self):
         return str(self.client_name)
-
-

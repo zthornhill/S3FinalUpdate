@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'CT/base.html' %}
+
+<body>
+
+    {% load crispy_forms_tags %}
+
+    {% block content %}
+    <h2>Sign Up</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+        <button class="btn btn-success" type="submit">Join Calorie Tracker!</button>
+        </form>
+        {% endblock content %}
+
+    <h3> * All users will register as basic Calorie Tracker Users. For premium upgrade, please see the Navigation Menu! *</h3>
+
+</body>
+
+<style>
+
+    body {
+    text-align: center;
+    color: grey;
+    font-family: "Palatino Linotype", Palatino, serif;
+    }
+
+    .pic {
+    position:fixed;
+	top:0;
+	left:0;
+    }
+
+    .pic2 {
+    position:fixed;
+	top:0px;
+	right:0px;
+    }
+
+    h2 {
+        padding-top: 50px;
+        font-size: 40px;
+        color: black;
+    }
+
+    input{
+        padding: 10px;
+        font-size: 15px;
+        width: 220px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+
+    label{
+        width: 240px;
+        padding-bottom: 5px;
+        display: inline-block;
+        font-family: "Palatino Linotype", Palatino, serif;
+        color: black ;
+    }
+
+    textarea {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 250px;
+        background-color: aqua;
+        height: 50px;
+    }
+
+    button {
+        position: center;
+    }
+
+</style>
+
+
+</html>
