@@ -13,6 +13,8 @@ class MyTestCase(unittest.TestCase):
     def test_CT(self):
         user = "zacht"
         pwd = "gomavs"
+        cit = "Bellevue"
+        zipC = "68005"
 
         driver = self.driver
         driver.maximize_window()
@@ -26,6 +28,8 @@ class MyTestCase(unittest.TestCase):
         time.sleep(5)
         driver.get("http://127.0.0.1:8000/client_list")
         time.sleep(3)
+        driver.get("http://127.0.0.1:8000/client/1/summary/")
+        time.sleep(10)
 
 
 def tearDown(self):
