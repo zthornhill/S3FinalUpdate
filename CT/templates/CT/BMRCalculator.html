@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<title>BMR Calculator</title>
+<body>
+
+    <div class="about-section">
+        <img class="pic" src="{% static "images/logo.JPG" %}" alt="Logo" width="140" height="140"/>
+        <h1>Calculating BMR at Calorie Tracker</h1>
+            <p>At Calorie Tracker, we have studied methods and formulas to calculate the BMR for our clients.
+                The Basal Metabolic Rate (BMR) Calculator estimates your basal metabolic rate—the amount of energy
+                expended while at rest in a neutrally temperate environment, and in a post-absorptive state
+                (meaning that the digestive system is inactive, which requires about 12 hours of fasting). However, we understand
+                that calorie intake varies from person to person based on activity levels. For this reason, we use an external calculator
+                that takes our client information and then compares it to certain activity levels which we can discuss with our client. The formulas
+                below are the source of how these estimates are found! These BMR findings for the client are then shown on the summary page, which
+                is compared to the daily calorie count tracked by our tracking algorithm.
+            </p>
+
+        <H4>Calorie Tracker For Men</H4>
+        <body>Mifflin-St Jeor Equation : 10W + 6.25H  - 5A + 5</body><br>
+        <body>Harris-Benedict Equation : 13.397W + 4.799H - 5.677A + 88.362</body>
+        <H4>Calorie Tracker For Women</H4>
+        <body>Mifflin-St Jeor Equation : 10W + 6.25H - 5A - 161</body><br>
+        <body>Harris-Benedict Equation : 9.247W + 3.098H - 4.330A + 447.593</body>
+
+        <body1></body1>
+
+        <body>** NOTE ** : <br>
+        W = Weight in kilograms (kg) <br>
+        H = Height in centimeters (cm) <br>
+        A = Age</body>
+
+    </div>
+
+    <footer></footer>
+    <h1> -- Calculate Client BMR Here --</h1>
+    <p><a href="https://www.calculator.net/bmr-calculator.html">
+    <img src="{% static "images/BMR.jpg" %}" width="100" height="132">
+    </a></p>
+
+
+    <div style="text-align:center">
+        <a href="{% url 'CT:home' %}" class="return"> Return Home</a>
+        <a href="{% url 'CT:client_list' %}" class="return"> Update BMR</a>
+
+    </div>
+
+</body>
+
+<style>
+
+    body {
+
+    text-align: center;
+    color: grey;
+    font-family: "Palatino Linotype", Palatino, serif;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.about-section {
+  padding: 60px;
+  text-align: center;
+  background-color: lightgrey;
+  color: black;
+}
+
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+    .pic {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+        padding-bottom: 30px;
+        padding-top:  10px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+
+    }
+
+    .return {
+        border: none;
+        margin-bottom: 25px;
+        display: inline-block;
+        padding: 8px;
+        color: black;
+        background-color: aqua;
+        text-align: center;
+        cursor: pointer;
+        width: 10%;
+    }
+
+    h4 {
+ font-family: "Palatino Linotype", Palatino, serif;
+ font-size: 15px;
+ color: black;
+}
+
+footer {
+ font-size: 0.75em;
+ text-align: center;
+ margin-left: 20px;
+ clear: both;
+ color: #ccc;
+ }
+
+
+
+</style>
+
+
+</html>

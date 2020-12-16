@@ -1,0 +1,116 @@
+{% extends 'CT/base.html' %}
+{% block content %}
+{% load mathfilters %}
+{% load humanize %}
+
+    {% load static %}
+
+    <img class="pic" src="{% static "images/logo.JPG" %}" alt="Logo" width="150" height="150"/>
+    <img class="pic2" src="{% static "images/logo.JPG" %}" alt="Logo" width="150" height="150"/>
+
+    <style>
+
+    .pic {
+    position:fixed;
+	top:20;
+	left: 10px;
+    }
+
+    .pic2 {
+    position:fixed;
+	top:20;
+	right: 10px;
+    }
+
+    </style>
+
+<div class="row">
+  <h1 class = "title ">Client Summary for {{ client.client_name }}</h1>
+
+    <style>
+        .title {
+            padding-left: 60px;
+            padding-right: 60px;
+            margin: 20px;
+            text-align: center;
+            background-color: lightgrey;
+            color: black;
+        }
+    </style>
+
+</div>
+
+
+    <div class="row">
+        <h2 style="padding-left: 15Px">Consumed Daily Calorie Information</h2>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>Client</th>
+                <th>Meal Category</th>
+                <th>Meal Description</th>
+                <th>Meal Time</th>
+                <th>Calorie Count</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for track in tracker %}
+                <tr>
+                    <td>{{ track.client_name }}</td>
+                    <td>{{ track.meal_category }}</td>
+                    <td>{{ track.meal_description }}</td>
+                    <td>{{ track.time }}</td>
+                    <td>{{ track.calories }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr class="bg-info">
+                <th>Daily Calorie Intake</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ sum_calories.calories__sum|intcomma }}</td>
+
+            </tr>
+        </tbody>
+    </table>
+
+      <div class="row">
+        <h2 style="padding-left: 15Px">Client BMR Information</h2>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>Client</th>
+                <th>BMR</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for clientL in clients %}
+                <tr>
+                    <td>{{ clientL.client_name }}</td>
+                    <td>{{ clientL.BMR }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+    <style>
+
+    .row{
+    }
+    </style>
+
+{% endblock %}

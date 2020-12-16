@@ -6,12 +6,9 @@
 
    <body>
    {% if user.is_authenticated %}
-       <div class="page-container">
 
-           <h2 class="top-menu">Hello {{ user.username }},</h2>
-           <p>Please choose from below options.</p>
+           <h2> Hello {{ user.username }}, Welcome to the CT Interphase!</h2>
 
-       </div>
    {% endif %}
    <div class="content container">
        <div class="row">
@@ -23,7 +20,7 @@
                             <div class="thumbnail">
                                 <img src="{% static "images/Clients.jpg" %}" alt="client"/>
                                 <div class="caption">
-                                    <h2>Clients</h2>
+                                    <h3>Clients</h3>
                                     <p>Ensuring our clients are given the opportunity to track their nutrition
                                         goals is our mission</p>
                                     {% if user.is_authenticated %}
@@ -38,7 +35,7 @@
                             <div class="thumbnail">
                                 <img src="{% static "images/MTrack.jpg" %}" alt="mTrack"/>
                                 <div class="caption">
-                                    <h2>Meal Tracker</h2>
+                                    <h3>Meal Tracker</h3>
                                     <p>Full meal catalogs overseen by our nutrition professionals
                                         help track client progress in their nutrition goals</p>
                                     <p><a class="btn btn-default" href="{% url 'CT:mealtrack_list' %}"
@@ -54,6 +51,16 @@
        </div>
    </div>
    </body>
+
+    <style>
+
+    h2 {
+        text-align: center;
+        margin-left: 240px;
+        width: 100%;
+    }
+
+    </style>
 
 {% endblock %}
 

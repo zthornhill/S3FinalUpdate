@@ -3,6 +3,8 @@ from .models import *
 from .forms import *
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
+from django.db.models import Sum
+from _decimal import Decimal
 
 now = timezone.now()
 
@@ -30,7 +32,7 @@ def client_edit(request, pk):
             client.updated_date = timezone.now()
             client.save()
             client = Client.objects.filter(created_date__lte=timezone.now())
-            return render(request, 'crm/client_list.html',
+            return render(request, 'CT/client_list.html',
                           {'clients': client})
     else:
         # edit
@@ -91,3 +93,23 @@ def mealtrack_delete(request, pk):
     mealtrack = get_object_or_404(MealTracker, pk=pk)
     mealtrack.delete()
     return redirect('CT:mealtrack_list')
+
+@login_required
+def summary(request, pk):
+    client = get_object_or_404(Client, pk=pk)
+    clients = Client.objects.filter(created_date__lte=timezone.now())
+    tracker = MealTracker.objects.filter(client_name=pk)
+
+    sum_calories = \
+        MealTracker.objects.filter(client_name=pk).aggregate(Sum('calories'))
+
+    sum = sum_calories.get("calories__sum")
+    if sum == None:
+        sum_calories = {'calories__sum' : Decimal('0')}
+
+
+
+    return render(request, 'CT/summary.html', {'client': client,
+                                                'tracker': tracker,
+                                                'clients': clients,
+                                                'sum_calories': sum_calories, })

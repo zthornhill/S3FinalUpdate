@@ -9,10 +9,13 @@ class Client(models.Model):
         ('Female', 'Female'),
     )
     client_name = models.CharField(max_length=50)
+    gender = models.CharField(max_length=50, choices=CHOICE)
     email = models.EmailField(max_length=100)
     address = models.CharField(max_length=200)
     height = models.IntegerField(blank=False, null=False)
     weight = models.IntegerField(blank=False, null=False)
+    client_age = models.IntegerField(blank=False, null=False)
+    BMR = models.DecimalField(max_digits=10, decimal_places=2)
     account_number = models.IntegerField(blank=False, null=False)
     city = models.CharField(max_length=50)
     state = models.CharField(max_length=50)
@@ -61,3 +64,4 @@ class MealTracker(models.Model):
 
     def __str__(self):
         return str(self.client_name)
+

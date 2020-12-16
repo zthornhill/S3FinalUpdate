@@ -36,11 +36,12 @@
             <thead>
             <tr class="bg-info">
                 <th>Client Name</th>
+                <th>Gender</th>
                 <th>Email</th>
                 <th>Height</th>
-                <th>Age</th>
-                <th>Gender</th>
                 <th>Weight</th>
+                <th>Age</th>
+                <th>BMR</th>
                 <th>Acc Number</th>
                 <th>Phone Number</th>
                 <th>Address</th>
@@ -55,9 +56,12 @@
             {% for client in clients %}
                 <tr>
                     <td>{{ client.client_name }}</td>
+                    <td>{{ client.gender }}</td>
                     <td>{{ client.email }}</td>
                     <td>{{ client.height }}</td>
                     <td>{{ client.weight }}</td>
+                    <td>{{ client.age }}</td>
+                    <td>{{ client.BMR }}</td>
                     <td>{{ client.account_number }}</td>
                     <td>{{ client.phone_number }}</td>
                     <td>{{ client.address }}</td>
@@ -72,7 +76,7 @@
                           class="btn btn-danger">Delete</a>
                    </td>
 
-                    <td><a href=""
+                    <td><a href="{% url 'CT:summary' pk=client.pk %}"
                            class="btn btn-primary">Summary</a>
 
                 </tr>
@@ -82,6 +86,18 @@
 
     </div>
     </body>
+
+    <style>
+
+        .panel-body{
+            text-align: center;
+        }
+
+        .panel-heading{
+            text-align: center;
+        }
+
+    </style>
     </html>
 {% endblock %}
 </html>

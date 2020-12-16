@@ -16,5 +16,7 @@ urlpatterns = [
     path('mealtrack/add/', views.mealtrack_new, name='mealtrack_new'),
     path('mealtrack/<int:pk>/edit/', views.mealtrack_edit, name='mealtrack_edit'),
     path('mealtrack/<int:pk>/delete/', views.mealtrack_delete, name='mealtrack_delete'),
+    path('client/<int:pk>/summary/', views.summary, name='summary'),
+    path('bmrcalc/', TemplateView.as_view(template_name='CT/BMRCalculator.html'), name='BMRCalculator'),
 
 ]
